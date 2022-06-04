@@ -1,0 +1,26 @@
+<div class="todos">
+    <form>
+        <mat-form-field class="example-full-width" appearance="fill" color="accent">
+            <mat-label>Enter Todo...</mat-label>
+            <input type="text" name="inputTodo" matInput placeholder="Ex. Do homework" [(ngModel)]="inputTodo">
+        </mat-form-field>
+        <!--mat-form-field class="input" appearance="fill">
+            <mat-label>Enter Todo...</mat-label>
+            <input type="text" name="inputTodo" matInput placeholder="Ex. Draw something" [(ngModel)]="inputTodo">
+        </mat-form-field-->
+        <button mat-flat-button color="accent" class="submit" (click)="add()">Add Task</button>
+    </form>
+    <div *ngFor="let todo of todos; let i = index;" class="todo {{(todo.complete ? 'done' :'')}}">
+        <div class="id">
+            {{i + 1}}
+        </div>
+        <div class="content" (click)="done(i)">
+            {{todo.content}}
+        </div>
+        <button mat-mini-fab class="delete" (click)="delete(i)">
+            <mat-icon>
+              delete
+            </mat-icon>
+        </button >
+    </div>
+</div>
